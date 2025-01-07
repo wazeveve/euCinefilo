@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
+
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+.inicio{
+    height: 100%;
+    background-image: url(../imagens/backgroundTLOU.jpeg);
+    background-position-x: 70%;
+    object-fit: cover;
+}
+
+.inicio::after{
+    content: ''; 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(closest-side, #ebf8e100, rgba(20,20, 20, 0.8));
+    pointer-events: none;
+}
+
+.texto{
+    font-family: "DM Serif Text", serif;
+    font-size: 50px;
+    position: absolute;
+    z-index: 1;
+    top: 80%;
+    right: 50vw;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+}
+
+.link:hover{
+    color: black;
+}

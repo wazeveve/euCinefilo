@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/avaliacao.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Formulário de Avaliação</title>
+</head>
+<body class="bg-dark">
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="../index.html" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="../paginas/filmes.html" class="nav-link px-2 text-white">Filmes</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Sobre</a></li>
+        </ul>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Procurar..." aria-label="Search">
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <form class="p-4 rounded bg-secondary" style="width: 100%; max-width: 400px;">
+      <h2 class="text-center mb-4">Avaliação do Filme</h2>
+
+      <div class="mb-3">
+        <label for="movieTitle" class="form-label">Título do Filme</label>
+        <input type="text" class="form-control" id="movieTitle" placeholder="Digite o título do filme" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="username" class="form-label">Nome de Usuário</label>
+        <input type="text" class="form-control" id="username" placeholder="Digite seu nome" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Avaliação</label>
+        <div class="star-rating">
+          <ul class="avaliacao">
+            <li class="star-icon ativo" data-avaliacao="1"></li>
+            <li class="star-icon" data-avaliacao="2"></li>
+            <li class="star-icon" data-avaliacao="3"></li>
+            <li class="star-icon" data-avaliacao="4"></li>
+            <li class="star-icon" data-avaliacao="5"></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Descrição</label>
+        <textarea class="form-control" id="description" rows="3" placeholder="Escreva sua opinião" required></textarea>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-success">Enviar Avaliação</button>
+      </div>
+    </form>
+  </div>
+  
+  <footer class="bg-dark text-center">
+    <p class="text-light bold fs-4"> Todos os direitos Reservados &copy; 2025</p>
+  </footer>
+  <script src="../js/starts.js"></script>
+</body>
+</html>

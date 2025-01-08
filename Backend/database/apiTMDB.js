@@ -82,11 +82,11 @@ async function saveReviews(idMovie){
     });
 }
 
-
+/*
 for(let i = 1; i <= 500; i++){
     await saveMovies(i).catch(() => console.log('Erro ao salvar filmes da página ' + i));   
 }
-
+*/
 const list = await axios.get('http://localhost:3000/filme');
 
 list.data.forEach(async (movie) => {

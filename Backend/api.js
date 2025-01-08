@@ -2,7 +2,7 @@ import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import { createClient } from 'redis';
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({ datasources: {  db: { url: "mysql://root:jean123@localhost:3306/avaliacaoFilmes?schema=public" } } });
 
 const app = express();
 app.use(express.json());

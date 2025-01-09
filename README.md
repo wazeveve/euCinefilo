@@ -1,4 +1,4 @@
-# oiCinefilo
+# euCinefilo
 Um projeto desenvolvido na disciplica de Banco de Dados 2, afim de aprender sobre banco de dados não relacionais (NoSQL). 
 Este projeto foi idealizado com o modelo chave-valor, utilizando o Redis.
 

@@ -90,14 +90,14 @@ app.delete('/filme/:id', async (req, res) => {
 app.get('/avaliacao', async (req, res) => {
   const avaliacoesNaCache = await cliente.get('encontrarTodasAvaliacoes');
   if(avaliacoesNaCache){
-    //res.status(200).json(JSON.parse(avaliacoesNaCache));
-    res.status(200).send("Redis");
+    res.status(200).json(JSON.parse(avaliacoesNaCache));
+    //res.status(200).send("Redis");
     return;
   } else {
     await prisma.avaliacao.findMany().then((avaliacaos) => {
       cliente.set('encontrarTodasAvaliacoes', JSON.stringify(avaliacaos), {EX: 30});
-      //res.status(200).json(avaliacaos);
-      res.status(200).send("MySql");
+      res.status(200).json(avaliacaos);
+      //res.status(200).send("MySql");
     }).catch((error) => {
       console.log(error);
       res.status(500).send('Erro ao buscar as avaliações!');

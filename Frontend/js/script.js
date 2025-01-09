@@ -60,4 +60,4 @@ function encontraFilme(filmes, titulo){
 }
 
 
-salvaAvaliacao();
+await salvaAvaliacao();

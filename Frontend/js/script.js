@@ -13,7 +13,7 @@ async function salvaAvaliacao(){
 
         for(let i = 0; i < stars.length; i++){
             if(stars[i] && stars[i].className.includes("ativo")){
-                nota = (i + 1) * 2;
+                nota = i + 1;
                 break;
             }
 
@@ -30,6 +30,8 @@ async function salvaAvaliacao(){
         var filmes = (await axios.get("http://localhost:3000/filme")).data;
         var idFilme = encontraFilme(filmes,movieTitle);
         
+        console.log(filmes);
+
         if(nota && idFilme > -1){
             await axios.post('http://localhost:3000/avaliacao', {
                 nomeUsuario: username,

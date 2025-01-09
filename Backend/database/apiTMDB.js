@@ -73,7 +73,7 @@ async function saveReviews(idMovie){
             data: {
                 id: review.id,
                 nomeUsuario: review.author_details.username,
-                nota: review.author_details.rating,
+                nota: review.author_details.rating / 2,
                 filmeId: idMovie,
                 comentario: review.content,
                 dataCriacao: review.created_at

@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 html, body{
     height: 100%;
     margin: 0;
+
+}
+
+.header{
+    font-family: "Montserrat", serif;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .inicio{

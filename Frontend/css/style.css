@@ -21,13 +21,25 @@ html, body{
     pointer-events: none;
 }
 
-.texto{
+.texto {
     font-family: "DM Serif Text", serif;
-    font-size: 50px;
+    font-size: 40px;
     position: absolute;
     z-index: 1;
-    top: 80%;
-    right: 50vw;
+    top: 60%;
+    left: -50vw; 
+    animation: deslizaEsquerda 2.1s ease-out forwards; 
+}
+
+@keyframes deslizaEsquerda {
+    from {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(130%);
+        opacity: 1;
+    }
 }
 
 .link{

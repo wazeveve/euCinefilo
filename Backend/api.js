@@ -1,11 +1,13 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import { createClient } from 'redis';
+import cors from 'cors';
 
 const prisma = new PrismaClient({ datasources: {  db: { url: "mysql://root:jean123@localhost:3306/avaliacaoFilmes?schema=public" } } });
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 const cliente = createClient();
 
@@ -88,14 +90,14 @@ app.delete('/filme/:id', async (req, res) => {
 app.get('/avaliacao', async (req, res) => {
   const avaliacoesNaCache = await cliente.get('encontrarTodasAvaliacoes');
   if(avaliacoesNaCache){
-    res.status(200).json(JSON.parse(avaliacoesNaCache));
-    //res.status(200).send("Redis");
+    //res.status(200).json(JSON.parse(avaliacoesNaCache));
+    res.status(200).send("Redis");
     return;
   } else {
     await prisma.avaliacao.findMany().then((avaliacaos) => {
       cliente.set('encontrarTodasAvaliacoes', JSON.stringify(avaliacaos), {EX: 30});
-      res.status(200).json(avaliacaos);
-      //res.status(200).send("MySql");
+      //res.status(200).json(avaliacaos);
+      res.status(200).send("MySql");
     }).catch((error) => {
       console.log(error);
       res.status(500).send('Erro ao buscar as avaliações!');

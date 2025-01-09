@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/avaliacao.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Formulário de Avaliação</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="bg-dark">
+  <header class="p-3 text-bg-dark header">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="../index.html" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="../paginas/filmes.html" class="nav-link px-2 text-white">Filmes</a></li>
+          <li><a href="avaliacao.html" class="nav-link px-2 text-white">Avalie</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Lista de Avaliações</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <section class="ftco-section bg-light">
+    <h1 class="text-center pb-3">Lista de Clientes</h1>
+    <div class="container">
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Usuário</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="corpo">
+                <tr>
+                    <td id="Titulo do filme">Gladiador II</td>
+                    <td id="Usuario">user1</td>
+                    <td id="Avaliação">4</td>
+                    <td id="Descricao">Teste</td>
+                    <td>
+                        <button type="button" class="btn btn-success">Editar</button>
+                        <button type="button" class="btn btn-danger">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+  
+  <footer class="bg-dark text-center">
+    <p class="text-light bold fs-4"> Todos os direitos Reservados &copy; 2025</p>
+  </footer>
+  <script src="../js/script.js"></script>
+  <script src="../js/starts.js"></script>
+  <script src="../js/api.js"></script>
+</body>
+</html>

@@ -28,7 +28,7 @@ html, body{
     z-index: 1;
     top: 60%;
     left: -50vw; 
-    animation: deslizaEsquerda 2.1s ease-out forwards; 
+    animation: deslizaEsquerda 2.1s ease-in forwards; 
 }
 
 @keyframes deslizaEsquerda {
@@ -40,7 +40,7 @@ html, body{
         transform: translateX(130%);
         opacity: 1;
     }
-    
+
 }
 
 .link{

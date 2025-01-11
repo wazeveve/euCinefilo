@@ -95,7 +95,7 @@ app.get('/avaliacao', async (req, res) => {
     return;
   } else {
     await prisma.avaliacao.findMany().then((avaliacaos) => {
-      cliente.set('encontrarTodasAvaliacoes', JSON.stringify(avaliacaos), {EX: 30});
+      cliente.set('encontrarTodasAvaliacoes', JSON.stringify(avaliacaos)/*, {EX: 30}*/);
       res.status(200).json(avaliacaos);
       //res.status(200).send("MySql");
     }).catch((error) => {

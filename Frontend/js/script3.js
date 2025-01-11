@@ -10,7 +10,7 @@ async function listarAvaliacoes(){
     const dados = (await axios.get("http://localhost:3000/avaliacao")).data;
     console.log(dados);
 
-    for(let i = 0; i < 10; i = i + 1){
+    for(let i = 0; i < dados.length; i = i + 1){
         var nomeUsuario = dados[i].nomeUsuario;
         var nota = dados[i].nota;
         var filmeId = dados[i].filmeId;

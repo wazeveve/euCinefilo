@@ -1,6 +1,7 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import { createClient } from 'redis';
+import { Redis } from 'ioredis'
 import cors from 'cors';
 
 const prisma = new PrismaClient({ datasources: {  db: { url: "mysql://root:jean123@localhost:3306/avaliacaoFilmes?schema=public" } } });
@@ -10,15 +11,25 @@ app.use(express.json());
 app.use(cors())
 
 const cliente = createClient();
+const redis = new Redis();
 
 //Métodos para manipulação de filmes
 app.get('/filme', async (req, res) => {
-  await prisma.filme.findMany().then((filmes) => {
-    res.status(200).json(filmes);
-  }).catch((error) => {
-    console.log(error);
-    res.status(500).send('Erro ao buscar filmes');
-  });
+  const filmesNaCache = await cliente.get('encontrarTodosFilmes');
+  if(filmesNaCache){
+    res.status(200).json(JSON.parse(filmesNaCache));
+    //res.status(200).send("Redis");
+    return;
+  } else {
+    await prisma.filme.findMany().then((filmes) => {
+      cliente.set('encontrarTodosFilmes', JSON.stringify(filmes), {EX: 30});
+      res.status(200).json(filmes);
+      //res.status(200).send("MySql");
+    }).catch((error) => {
+      console.log(error);
+      res.status(500).send('Erro ao buscar filmes!');
+    });
+  }
 });
 
 app.get('/filme/:id', async (req, res) => {
@@ -95,7 +106,8 @@ app.get('/avaliacao', async (req, res) => {
     return;
   } else {
     await prisma.avaliacao.findMany().then((avaliacaos) => {
-      cliente.set('encontrarTodasAvaliacoes', JSON.stringify(avaliacaos)/*, {EX: 30}*/);
+      //redis.send_command('JSON.SET', 'avaliacoes', '.', JSON.stringify(avaliacaos));
+      cliente.set('encontrarTodasAvaliacoes', JSON.stringify(avaliacaos), {EX: 30});
       res.status(200).json(avaliacaos);
       //res.status(200).send("MySql");
     }).catch((error) => {

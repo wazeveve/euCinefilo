@@ -10,13 +10,20 @@ html, body{
     font-family: "Montserrat", serif;
     font-size: 1.2rem;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .inicio{
     height: 100%;
-    background-image: url(../imagens/backgroundTLOU.jpeg);
-    background-position-x: 70%;
+    margin: 0; 
+    padding: 0; 
+    background-image: url(../imagens/batman.jpg);
     object-fit: cover;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
 }
 
 .inicio::after{
@@ -30,24 +37,37 @@ html, body{
 
 .texto {
     font-family: "DM Serif Text", serif;
-    font-size: 40px;
     position: absolute;
-    z-index: 1;
-    top: 60%;
-    left: -50vw; 
-    animation: deslizaEsquerda 2.1s ease-in forwards; 
+    top: 85%; 
+    left: 50%; 
+    transform: translate(-50%, -40%); 
+    color: white; 
+    font-size: 2rem; 
+    text-align: center;
+    animation: apareceTexto 2.1s ease-in; 
 }
 
-@keyframes deslizaEsquerda {
+@keyframes apareceTexto {
     from {
-        transform: translateX(0);
         opacity: 0;
     }
     to {
-        transform: translateX(130%);
         opacity: 1;
     }
 
+}
+
+.logo {
+    width: 150px; 
+    height: auto;
+    margin-right: 20px; 
+    margin-top: 5px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
 }
 
 .link{

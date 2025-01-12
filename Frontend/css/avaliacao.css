@@ -7,7 +7,7 @@
   list-style-type: none;
   cursor: pointer;
   color: #ffe500;
-  font-size: 40px;/* alterar o tamanho das estrelas */
+  font-size: 40px;
 }
 .star-icon::before{
   content: "\2605";
@@ -26,4 +26,23 @@ body{
   font-family: "Montserrat", serif;
   font-weight: 500;
   font-size: 1.2rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 150px; 
+  height: auto;
+  margin-right: 20px; 
+  margin-top: 5px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
 }

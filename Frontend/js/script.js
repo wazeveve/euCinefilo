@@ -3,7 +3,6 @@ async function salvaAvaliacao(){
 
     enviar.addEventListener("submit", async function (event) {
         event.preventDefault(); // Prevenir o comportamento padrão (recarregar a página)
-
         var movieTitle = document.getElementById('movieTitle').value;
         var username = document.getElementById('username').value;
         var dataCriacao = new Date();
@@ -60,4 +59,4 @@ function encontraFilme(filmes, titulo){
 }
 
 
-await salvaAvaliacao();
+salvaAvaliacao();
